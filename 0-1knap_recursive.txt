@@ -1,0 +1,16 @@
+#0--1 knapsack recursive
+
+def knap(wt,val,w,n):
+    if n==0 or w==0:
+        return 0
+    if wt[n-1] <= w:
+        return max(val[n-1] + knap(wt,val,w-wt[n-1],n-1),knap(wt,val,w,n-1))
+    elif wt[n-1] > w:
+        return knap(wt,val,w,n-1)
+    
+wt = [1,2,3,4,1]
+w = 8
+val = [6,2,3,4,1]
+n = len(wt)
+prof = knap(wt,val,w,n)
+print(prof)
